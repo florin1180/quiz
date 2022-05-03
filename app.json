@@ -3,12 +3,7 @@
     "name": "quiz",
     "slug": "quiz",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+    "orientation": "portrait"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -29,4 +24,4 @@
       "favicon": "./assets/favicon.png"
     }
   }
-}
+
