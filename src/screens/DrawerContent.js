@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React , { useContext } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer'
@@ -11,8 +12,10 @@ export function DrawerContent(props) {
 
     const [isDarkTheme, setIsDarkTheme] = React.useState(false);
 
-    const {signOut} = useContext(AuthContext)
-
+    const signOut = (dispatch) => async () => {
+        await AsyncStorage.removeItem('token')
+        dispatch({ type: 'sign_out' })
+    }
 
     const toggleTheme = () => {
         setIsDarkTheme(!isDarkTheme);
@@ -26,12 +29,12 @@ export function DrawerContent(props) {
                         <View style={{flexDirection:'row', marginTop: 15}}>
                             <Avatar.Image 
                                 source={{
-                                    uri: 'https://cdn.pixabay.com/photo/2020/07/25/13/47/boat-5436748_960_720.jpg'
+                                    uri: ''
                                 }}
                                 size={70}
                             />
                             <View style={{marginLeft:35, marginTop: 12, flexDirection:'column'}}>
-                                <Title style={styles.title}>MilesAway</Title>
+                                <Title style={styles.title}>QuiZ</Title>
                                 {/* <Caption style={styles.caption}>by Florin Iordache</Caption> */}
                             </View>
                         </View>
@@ -46,8 +49,8 @@ export function DrawerContent(props) {
                         size={size}
                         />
                     )}
-                    label='Home'
-                    onPress={() => {props.navigation.navigate('Journey')}}
+                    label='Dashboard'
+                    onPress={() => {props.navigation.navigate('Dashboard')}}
                     />
                     <DrawerItem 
                     icon={({color, size}) => (
@@ -57,20 +60,87 @@ export function DrawerContent(props) {
                         size={size}
                         />
                     )}
-                    label='History'
-                    onPress={() => {props.navigation.navigate('History')}}
-                />
-                <DrawerItem 
-                    icon={({color, size}) => (
-                        <Icon
-                        name="account-outline"
-                        color={color}
-                        size={size}
-                        />
-                    )}
-                    label='Account'
-                    onPress={() => {props.navigation.navigate('Account')}}
-                />
+                    label='Help'
+                    onPress={() => {props.navigation.navigate('Help')}}
+                    />
+                    <DrawerItem 
+                        icon={({color, size}) => (
+                            <Icon
+                            name="account-outline"
+                            color={color}
+                            size={size}
+                            />
+                        )}
+                        label='Notes'
+                        onPress={() => {props.navigation.navigate('Notes')}}
+                    />
+                    <DrawerItem 
+                        icon={({color, size}) => (
+                            <Icon
+                            name="account-outline"
+                            color={color}
+                            size={size}
+                            />
+                        )}
+                        label='Profile'
+                        onPress={() => {props.navigation.navigate('Profile')}}
+                    />
+                    <DrawerItem 
+                        icon={({color, size}) => (
+                            <Icon
+                            name="account-outline"
+                            color={color}
+                            size={size}
+                            />
+                        )}
+                        label='Search'
+                        onPress={() => {props.navigation.navigate('Search')}}
+                    />
+                    <DrawerItem 
+                        icon={({color, size}) => (
+                            <Icon
+                            name="account-outline"
+                            color={color}
+                            size={size}
+                            />
+                        )}
+                        label='Settings'
+                        onPress={() => {props.navigation.navigate('Settings')}}
+                    />
+                    <DrawerItem 
+                        icon={({color, size}) => (
+                            <Icon
+                            name="account-outline"
+                            color={color}
+                            size={size}
+                            />
+                        )}
+                        label='Statistics'
+                        onPress={() => {props.navigation.navigate('Statistics')}}
+                    />
+                    <DrawerItem 
+                        icon={({color, size}) => (
+                            <Icon
+                            name="account-outline"
+                            color={color}
+                            size={size}
+                            />
+                        )}
+                        label='Subscriptions'
+                        onPress={() => {props.navigation.navigate('Subscriptions')}}
+                    />
+                    <DrawerItem 
+                        icon={({color, size}) => (
+                            <Icon
+                            name="account-outline"
+                            color={color}
+                            size={size}
+                            />
+                        )}
+                        label='Tests'
+                        onPress={() => {props.navigation.navigate('Tests')}}
+                    />
+                
                     </Drawer.Section>
                     <Drawer.Section title='Preferences'>
                         <TouchableRipple onPress={() => {toggleTheme()}}>

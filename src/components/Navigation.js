@@ -25,6 +25,21 @@ const Stack = createNativeStackNavigator();
 
 const Drawer = createDrawerNavigator();
 
+const DrawerNav = ({navigation}) => {
+  <Drawer.Navigator drawerContent ={props => <DrawerContent {...props}/>}>
+    <Drawer.Screen name = "Dashboard" component={Dashboard}/>
+    <Drawer.Screen name = "Help" component={Help}/>
+    <Drawer.Screen name = "HomeScreen" component={HomeScreen}/>
+    <Drawer.Screen name = "Notes" component={Notes}/>
+    <Drawer.Screen name = "Profile" component={Profile}/>
+    <Drawer.Screen name = "Search" component={Search}/>
+    <Drawer.Screen name = "Settings" component={Settings}/>
+    <Drawer.Screen name = "Statistics" component={Statistics}/>
+    <Drawer.Screen name = "Subscriptions" component={Subscriptions}/>
+    <Drawer.Screen name = "Tests" component={Tests}/>
+  </Drawer.Navigator>
+}
+
 const Navigation = () => {
   const {userInfo, splashLoading} = useContext(AuthContext);
 
