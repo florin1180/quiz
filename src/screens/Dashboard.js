@@ -5,7 +5,7 @@ import { SafeAreaView, StyleSheet, Text } from 'react-native'
 const Dashboard = ({navigation}) => {
     return(
         <SafeAreaView>
-            <Text> Dashboard </Text>
+            <Text> Dashboard</Text>
         </SafeAreaView>
     )
 }

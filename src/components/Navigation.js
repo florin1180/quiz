@@ -1,8 +1,8 @@
-// import 'react-native-gesture-handler';
+import 'react-native-gesture-handler';
 import React, {useContext} from 'react';
 import {Text, View} from 'react-native';
 
-// import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
@@ -23,7 +23,7 @@ import Tests from '../screens/Tests';
 
 const Stack = createNativeStackNavigator();
 
-// const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator();
 
 const Navigation = () => {
   const {userInfo, splashLoading} = useContext(AuthContext);
