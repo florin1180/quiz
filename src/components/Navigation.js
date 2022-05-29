@@ -4,7 +4,7 @@ import {Text, View} from 'react-native';
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
@@ -20,13 +20,17 @@ import Statistics from '../screens/Statistics';
 import Subscriptions from '../screens/Subscriptions';
 import Tests from '../screens/Tests';
 
+// import Icon from 'react-native-vector-icons/ionicons';
 
-const Stack = createNativeStackNavigator();
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+
+const Stack = createStackNavigator();
 
 const Drawer = createDrawerNavigator();
 
-const DrawerNav = ({navigation}) => {
-  <Drawer.Navigator drawerContent ={props => <DrawerContent {...props}/>}>
+const DrawerNav = () => {
+  return (
+  <Drawer.Navigator>
     <Drawer.Screen name = "Dashboard" component={Dashboard}/>
     <Drawer.Screen name = "Help" component={Help}/>
     <Drawer.Screen name = "HomeScreen" component={HomeScreen}/>
@@ -38,6 +42,7 @@ const DrawerNav = ({navigation}) => {
     <Drawer.Screen name = "Subscriptions" component={Subscriptions}/>
     <Drawer.Screen name = "Tests" component={Tests}/>
   </Drawer.Navigator>
+  )
 }
 
 const Navigation = () => {
@@ -53,7 +58,20 @@ const Navigation = () => {
             options={{headerShown: false}}
           />
         ) : userInfo.token ? ( */}
-          <Stack.Screen name="Dashboard" component={Dashboard} />
+          <Stack.Screen 
+            name="Dashboard" 
+            component={DrawerNav}
+            options={{ headerShown: false}}
+            // options={{
+            //   headerLeft: () => (
+            //     <FontAwesome.Button 
+            //     name="bars" 
+            //     size={20} 
+            //     backgroundColor="#307ecc"
+            //     onPress={() => {navigation.openDrawer()}}></FontAwesome.Button>
+            //   )
+            // }}
+            />
         {/* ) : (
           <>
             <Stack.Screen

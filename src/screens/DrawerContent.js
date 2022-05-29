@@ -6,7 +6,7 @@ import { Avatar, Title, Caption, Paragraph, Drawer, Text, TouchableRipple, Switc
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { Context as AuthContext } from '../context/AuthContext'
 
-
+import { DrawerContent } from '../screens/DrawerContent'
 
 export function DrawerContent(props) {
 
