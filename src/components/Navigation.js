@@ -26,21 +26,23 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 const Stack = createStackNavigator();
 
+
+
 const Drawer = createDrawerNavigator();
 
 const DrawerNav = () => {
   return (
   <Drawer.Navigator>
-    <Drawer.Screen name = "Dashboard" component={Dashboard}/>
-    <Drawer.Screen name = "Help" component={Help}/>
-    <Drawer.Screen name = "HomeScreen" component={HomeScreen}/>
-    <Drawer.Screen name = "Notes" component={Notes}/>
+    {/* <Drawer.Screen name = "Dashboard" component={Dashboard}/> */}
     <Drawer.Screen name = "Profile" component={Profile}/>
-    <Drawer.Screen name = "Search" component={Search}/>
-    <Drawer.Screen name = "Settings" component={Settings}/>
-    <Drawer.Screen name = "Statistics" component={Statistics}/>
     <Drawer.Screen name = "Subscriptions" component={Subscriptions}/>
     <Drawer.Screen name = "Tests" component={Tests}/>
+    <Drawer.Screen name = "Statistics" component={Statistics}/>
+    <Drawer.Screen name = "Search" component={Search}/>
+    <Drawer.Screen name = "Notes" component={Notes}/>
+    <Drawer.Screen name = "Settings" component={Settings}/>
+    <Drawer.Screen name = "Help" component={Help}/>
+    {/* <Drawer.Screen name = "HomeScreen" component={HomeScreen}/> */}
   </Drawer.Navigator>
   )
 }
